@@ -20,4 +20,26 @@ window.addEventListener('load', function () {
     // Sets the width of the slider (which is also in the CSS)
     slider.style.width = totalWidth;
 
+    next.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        counter++;
+        if (counter == slideCount) {
+            counter = 0;
+        }
+        leftPosition = `-${counter * slideWidth}px`;
+        slider.style.left = leftPosition;
+    });
+
+
+    previous.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        counter--;
+        if (counter < 0) {
+            counter = slideCount-1;
+        }
+        leftPosition = `-${counter * slideWidth}px`;
+        slider.style.left = leftPosition;
+    });
 })
